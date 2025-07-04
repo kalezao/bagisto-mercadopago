@@ -1,0 +1,30 @@
+{
+    "name": "kalezao/mercadopago-payment-method",
+    "description": "Mercado Pago Payment Method for Bagisto",
+    "type": "bagisto-package",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kalezao",
+            "email": "contato@kalezao.com"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "mercadopago/dx-php": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "kalezao\\MercadoPagoPaymentMethod\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "kalezao\\MercadoPagoPaymentMethod\\Providers\\MercadoPagoPaymentMethodServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+} 
