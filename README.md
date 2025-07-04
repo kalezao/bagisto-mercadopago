@@ -25,7 +25,7 @@ Este package integra o Mercado Pago Checkout Pro ao Bagisto, permitindo que os c
 ### 1. Instalar o Package
 
 ```bash
-composer require kalezao/mercadopago-payment-method
+composer require kalezao/bagisto-mercadopago
 composer require mercadopago/dx-php:^3.5
 ```
 
@@ -143,40 +143,17 @@ src/
     └── web.php              # Rotas do package
 ```
 
-## Troubleshooting
-
-### Problemas Comuns
-
-1. **Erro "Carrinho não encontrado"**
-   - Verifique se o carrinho está ativo
-   - Limpe o cache da aplicação
-
-2. **Erro "Dados de pagamento inválidos"**
-   - Verifique se as credenciais do Mercado Pago estão corretas
-   - Confirme se o Access Token está válido
-
-3. **Webhooks não funcionando**
-   - Verifique se a URL do webhook está acessível publicamente
-   - Confirme se o SSL está configurado corretamente
-   - Verifique os logs da aplicação
-
-4. **Pagamento não aparece como aprovado**
-   - Verifique se o webhook está configurado corretamente
-   - Confirme se o Access Token tem permissões suficientes
-
 ### Logs
 
 Os logs são salvos em:
 ```
-storage/logs/laravel.log
+storage/logs/mercadopago<data>.log
 ```
 
-Procure por entradas com "Mercado Pago" para debugging.
 
 ## Suporte
 
 Para suporte técnico:
-- Email: contato@kalezao.com
 - GitHub: [Issues](https://github.com/kalezao/mercadopago-payment-method/issues)
 
 ## Licença
