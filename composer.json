@@ -21,7 +21,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "kalezao\\bagisto-mercadopago\\Providers\\MercadoPagoPaymentMethodServiceProvider"
+                "kalezao\\MercadoPagoPaymentMethod\\Providers\\MercadoPagoPaymentMethodServiceProvider"
             ]
         }
     },

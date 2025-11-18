@@ -230,6 +230,9 @@ class MercadoPagoPaymentMethod extends Payment
 
             // Get order from external reference
             $orderRepository = app(OrderRepository::class);
+            $invoiceRepository = app(InvoiceRepository::class);
+            $refundRepository = app(RefundRepository::class);
+
             $order = $orderRepository->findByField('cart_id', $payment->external_reference)->first();
             
             if (!$order) {
@@ -240,19 +243,22 @@ class MercadoPagoPaymentMethod extends Payment
             // Update order status based on payment status
             switch ($payment->status) {
                 case 'approved':
-                    $order->status = 'processing';
-                    $order->payment_status = 'paid';
+                    $invoice = $invoiceRepository->create($order->id);      
                     break;
                     
                 case 'pending':
-                    $order->status = 'pending';
-                    $order->payment_status = 'pending';
+                    $invoice = $invoiceRepository->create($order->id);
                     break;
                     
                 case 'rejected':
                 case 'cancelled':
-                    $order->status = 'canceled';
-                    $order->payment_status = 'failed';
+                    $orderRepository->cancel($order->id);
+                    break;
+                    
+                case 'refunded':
+                    if ($order->canBeRefunded()) {
+                        $refund = $refundRepository->create($order->id);
+                    }
                     break;
                     
                 default:
