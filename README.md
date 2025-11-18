@@ -102,20 +102,7 @@ Para receber notificações automáticas de mudança de status:
 
 ## Modo Sandbox
 
-Para testes, ative o **Modo Sandbox** nas configurações. Use os cartões de teste do Mercado Pago:
-
-### Cartões de Teste
-
-- **Aprovado**: 4509 9535 6623 3704
-- **Pendente**: 4000 0000 0000 0002
-- **Rejeitado**: 4000 0000 0000 0004
-
-### Dados de Teste
-
-- **CVV**: Qualquer número de 3 dígitos
-- **Data de Vencimento**: Qualquer data futura
-- **Nome**: Qualquer nome
-- **CPF**: 12345678909
+Para você validar a sua integração você deverá utilizar tanto no MercadoPago quanto no Bagisto as chaves de api e usuários de TESTE. O MercadoPago não aceita transações utilizando qualquer parte da transação como teste e outra como produção.
 
 ## Estrutura do Package
 
